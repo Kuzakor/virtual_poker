@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info - Virtual Poker</title>
+    <link rel="stylesheet" href="/static/style.css">
+     <script src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>User Info</h1>
+        <div class="profile">
+            <img src="{{pfp}}" alt="Profile Picture">
+            <div class="profile-info">
+                <p>Username: <span>{{username}}</span></p>
+                <p>Virtual Money: <span>{{money}}</span></p>
+            </div>
+             <button type="button">Start Game</button>
+              <a href="/logout">
+                <button type="button">Logout</button>
+              </a>
+            <div class="buttons">
+            <h1>Settings</h1>
+            <a href="/change/username">
+               <button type="button">Change Username</button>
+            </a>
+            <a href="/change/picture">
+                <button type="button">Change Picture</button>
+            </a>
+            <a href="/change/password">
+               <button type="button">Change Password</button>
+            </a>
+            </div>
+        </div>
+    </div>
+        <div class="cookie-banner" id="cookie-banner">
+                <span>This website uses cookies to enhance the user experience.</span>
+                <button onclick="closeCookieBanner()">Got it!</button>
+            </div>
+</body>
+
+</html>

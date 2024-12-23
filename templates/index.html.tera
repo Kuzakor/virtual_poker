@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Poker</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Virtual Poker</h1>
+        <p>Play poker online with virtual money. No risks, just fun!</p>
+        <div class="button-container">
+            <a href="/login/⠀">
+               <button>Login</button>
+            </a>
+            <a href="/register/false">
+                <button>Register</button>
+            </a>
+        </div>
+    </div>
+    <div class="cookie-banner" id="cookie-banner">
+            <span>This website uses cookies to enhance the user experience.</span>
+            <button onclick="closeCookieBanner()">Got it!</button>
+        </div>
+</body>
+</html>

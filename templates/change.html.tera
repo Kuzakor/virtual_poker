@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Data - Virtual Poker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Change {{name}}</h1>
+        <form action="/{{special}}/{{name}}" method="post" enctype="multipart/form-data">
+            <input type="{{typ}}" name="data" placeholder="new {{name}}" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
