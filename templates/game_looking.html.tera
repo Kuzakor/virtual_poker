@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Game - Virtual Poker</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
+</head>
+<body onLoad="start_listener();">
+<div class="container">
+    <h1>Finding a Game...</h1>
+    <div class="loading"></div>
+    <p>Please wait while we find a game for you.</p>
+</div>
+</body>
+</html>

@@ -139,3 +139,57 @@ input:focus {
     border-color: #fabd2f;
     outline: none;
 }
+.loading {
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #fabd2f;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(60, 60, 60, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.player-info img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.player-details {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 15px;
+}
+.player-details p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+.player-details .username {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fabd2f;
+}
+.game-area {
+    margin-top: 20px;
+    text-align: center;
+}
+.game-area p {
+    font-size: 1.2rem;
+    color: #a89984;
+}

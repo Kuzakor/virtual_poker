@@ -43,14 +43,14 @@ pub fn login_post(form: Form<LoginForm<'_>>, cookies: &CookieJar<'_>) -> Redirec
     let database = Database::connect();
     let user = database.get_user(form.username, "username");
     match user {
-        Some(user) => {
+        Ok(user) => {
             if database::password_check(&user.password_hash, &form.password) {
                 cookies.add(Cookie::new("user", user.cookie));
             } else {
                 return Redirect::to("/login/Password");
             }
         }
-        None => return Redirect::to("/login/User")
+        Err(_) => return Redirect::to("/login/User")
     }
     Redirect::to("/")
 }

@@ -39,7 +39,7 @@ pub fn register(message: bool) -> Template {
 #[post("/register", data = "<form>")]
 pub fn register_post(form: Form<RegisterForm<'_>>, cookies: &CookieJar<'_>) -> Redirect{
     let data = database::Database::connect();
-    if data.get_user(form.username, "username").is_none() {
+    if data.get_user(form.username, "username").is_err() {
         let _ = data.new_user(form.username, form.password);
         let user = data.get_user(form.username, "username").unwrap();
         cookies.add(Cookie::new("user", user.cookie));

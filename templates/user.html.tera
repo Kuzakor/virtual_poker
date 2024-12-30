@@ -16,7 +16,9 @@
                 <p>Username: <span>{{username}}</span></p>
                 <p>Virtual Money: <span>{{money}}</span></p>
             </div>
-             <button type="button">Start Game</button>
+            <a href="/lookgame">
+                <button type="button">Start Game</button>
+            </a>
               <a href="/logout">
                 <button type="button">Logout</button>
               </a>

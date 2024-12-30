@@ -13,12 +13,18 @@ struct ChangeData<'r> {
     r#data: &'r str,
 }
 
+static RESTRICTED_CHANGES: [&str; 3] = ["money", "cookie", "rowid"];
+
 /* get - change website
     - datatype: username, password etc.
     - renders a dedicated website depending on the changed data
 */
 #[get("/change/<datatype>")]
-pub fn change(datatype: String) -> Template {
+pub fn change(mut datatype: String) -> Template {
+    // no cheating for you my friend
+    if RESTRICTED_CHANGES.contains(&datatype.as_str()) {
+        datatype = "username".parse().unwrap();
+    }
     let (typ, special) = match datatype.as_str() {
         "password" => ("password", "change"),
         "picture" => ("file", "file"),
@@ -48,11 +54,9 @@ pub async fn change_file_post(
     if cookie.is_none() {
         return Ok(Redirect::to("/"));
     }
-
     let path = format!("static/pictures/{}", file.name().unwrap());
     let _ = file.copy_to(&path).await?;
-
-    database.update_user(path.as_str(), "profilePicture", cookie.unwrap().value());
+    database.update(&*("/".to_owned() + path.as_str()), "profilePicture", cookie.unwrap().value(), "users");
     Ok(Redirect::to("/"))
 }
 
@@ -70,6 +74,6 @@ pub fn change_post(datatype: &str, change: Form<ChangeData>, cookies: &CookieJar
     if cookie.is_none() {
         return Redirect::to("/");
     }
-    database.update_user(change.data, datatype, cookie.unwrap().value());
+    database.update(change.data, datatype, cookie.unwrap().value(), "users");
     Redirect::to("/")
 }

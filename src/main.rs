@@ -2,6 +2,7 @@ mod database;
 mod login;
 mod register;
 mod settings;
+mod game;
 
 #[macro_use]
 extern crate rocket;
@@ -50,7 +51,10 @@ fn rocket() -> _ {
                 login::logout,
                 settings::change,
                 settings::change_post,
-                settings::change_file_post
+                settings::change_file_post,
+                game::look_game,
+                game::check_game,
+                game::game
             ],
         )
         .mount("/static", FileServer::from("static"))
